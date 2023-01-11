@@ -6,17 +6,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import ru.kata.spring.boot_security.demo.service.UserService;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final LoginSuccessHandler loginSuccessHandler;
-    private final UserService userService;
+    private final UserDetailsService userService;
 
-    public WebSecurityConfig(LoginSuccessHandler loginSuccessHandler, UserService userService) {
+    public WebSecurityConfig(LoginSuccessHandler loginSuccessHandler, UserDetailsService userService) {
         this.loginSuccessHandler = loginSuccessHandler;
         this.userService = userService;
     }
